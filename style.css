@@ -1,0 +1,86 @@
+html {
+  font-family: 'Assistant';
+}
+
+body {
+    background-color: #fff;
+    margin: 0px;
+    overflow: hidden;
+    padding : 2em;
+}
+
+h1 {
+   text-align: center;
+   font-size: 3em;
+}
+
+table {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.content {
+  width: 100%;
+  background-color: #A2E8C2;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+table.content2 {
+  width: 100%;
+  background-color: #A8DBFF;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+td {
+  padding-right: 30px;
+  font-size: 2em;
+}
+
+ul.filament {
+  list-style-image: url('img/filament.gif');
+  list-style-position: inside;
+}
+
+li {
+  margin-top: 50px;
+}
+
+ul.settings {
+  list-style-image: url('img/drucker.gif');
+  list-style-position: inside;
+}
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
