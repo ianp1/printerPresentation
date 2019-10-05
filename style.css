@@ -84,3 +84,12 @@ ul.settings {
 	.col {  margin: 1% 0 1% 0%; }
 	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
 }
+
+.description {
+  margin-top:30px;
+  font-size: 20px;
+}
+
+.stl_td {
+  padding: 0 !important;
+}

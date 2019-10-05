@@ -13,70 +13,89 @@
     <body>
       <div class="section group">
         <div class="col span_1_of_3">
-      	<h1>Druckdatei</h1>
-        <hr />
+            <h1>Druckdatei</h1>
+            <hr />
 
-        <table>
-          <tr>
-            <td><img src="img/cube.gif"></td>
-            <td><strong>PistonAntiClock.stl</strong></td>
-          </tr>
-        </table>
-        <table class="content2">
-          <tr>
-            <td><div id="stl"></div></td>
-          </tr>
-        </table>
+            <table>
+                <tr>
+                    <td><img src="img/cube.gif"></td>
+                    <td><strong>PistonAntiClock.stl</strong></td>
+                </tr>
+            </table>
+            <table class="content2">
+                <tr>
+                    <td class="stl_td"><div id="stl"></div></td>
+                </tr>
+            </table>
+            <div class="description">
+                Dieser Kolben dient zur Verbindung von Ober- und Unterarm. Dreht der angebaute Servo-Motor das Bauteil, zieht dieses eine aufgeschraubte Führung an 
+                und sorgt so für die Anwinkelung des Unterarms.
+                <br>
+                Durch das Gewicht des Unterarms kommt es zu großen Belastungen im Gewinde, was zu starker Reibung und Hitzeentwicklung führt. Herkömmliche Filamente versagen hier, 
+                da diese der mechanische Belastung nicht standhalten.
+            </div>
 
 
-      	</div>
-      	<div class="col span_1_of_3">
-      	<h1>Einstellungen</h1>
-        <hr />
-        <table>
-          <tr>
-            <td><img src="img/drucker.gif"></td>
-            <td><strong>Prusa i3 MK3</strong></td>
-          </tr>
-        </table>
-        <table class="content">
-          <tr>
-            <td><strong>Druckzeit:</strong></td>
-            <td>5 Stunden</td>
-          </tr>
-          <tr>
-            <td><strong>Temperatur Düse:</strong></td>
-            <td>230°C</td>
-          </tr>
-          <tr>
-            <td><strong>Temperatur Bett:</strong></td>
-            <td>60°C</td>
-          </tr>
-        </table>
-      	</div>
-      	<div class="col span_1_of_3">
-      	<h1>Filament</h1>
-        <hr />
-        <table>
-          <tr>
-            <td><img src="img/filament.gif"></td>
-            <td><strong>PETG</strong></td>
-          </tr>
-        </table>
-        <table class="content2">
-          <tr>
-            <td><strong>Materialfarbe:</strong></td>
-            <td>Weiß</td>
-          </tr>
-          <tr>
-            <td><strong>Durchmesser:</strong></td>
-            <td>1,75 mm</td>
-          </tr>
-          <tr>
-            <td><strong>Hersteller:</strong></td>
-            <td>DasFilament</td>
-          </tr>
-        </table>
+            </div>
+            <div class="col span_1_of_3">
+            <h1>Einstellungen</h1>
+            <hr />
+            <table>
+                <tr>
+                    <td><img src="img/drucker.gif"></td>
+                    <td><strong>Prusa i3 MK3</strong></td>
+                </tr>
+            </table>
+            <table class="content">
+                <tr>
+                    <td><strong>Druckzeit:</strong></td>
+                    <td>5 Stunden</td>
+                </tr>
+                <tr>
+                    <td><strong>Temperatur Düse:</strong></td>
+                    <td>230°C</td>
+                </tr>
+                <tr>
+                    <td><strong>Temperatur Bett:</strong></td>
+                    <td>60°C</td>
+                </tr>
+            </table>
+            <div class="description">
+                Dieser 3D-Drucker aus dem Hause Prusa bietet neben zahlreichen Komfortfunktionen wie Autokalibrierung, 
+                Druckpausierung und -fortsetzung und einem magnetisch befestigtem Druckbett zur einfachen Druckentfernung einige ausgefeilte Schutzfunktionen.
+                So kann der Drucker beispielsweise einen Zusammenstoß auf dem Druckbett erkennen, den Druck nach einem Stromausfall wieder aufnehmen 
+                und das Zuneigegehen des Filamentes erkennen.
+            </div>
+        </div>
+        <div class="col span_1_of_3">
+            <h1>Filament</h1>
+            <hr />
+            <table>
+                <tr>
+                    <td><img src="img/filament.gif"></td>
+                    <td><strong>PETG</strong></td>
+                </tr>
+            </table>
+            <table class="content2">
+                <tr>
+                    <td><strong>Materialfarbe:</strong></td>
+                    <td>Weiß</td>
+                </tr>
+                <tr>
+                    <td><strong>Durchmesser:</strong></td>
+                    <td>1,75 mm</td>
+                </tr>
+                <tr>
+                    <td><strong>Hersteller:</strong></td>
+                    <td>DasFilament</td>
+                </tr>
+            </table>
+            <div class="description">
+                PETG weist im Vergleich zu anderen häufig verwendeten Filamenten wie PLA eine hohe Schlagzähigkeit, Witterungs- und Temperaturbeständigkeit auf.
+                Zudem sind viele PETG-Filamente lebensmittelecht.
+                <br>
+                Durch seine Druckeigenschaften eignet sich das Filament auch für unerfahrene Anwender, es lässt sich außerdem mit vergleichsweise schnellen Druckeinstellungen bearbeiten.
+            </div>
       	</div>
       </div>
       <script src="three.js"></script>
@@ -280,12 +299,15 @@
           animate();
 
           function init() {
+              var container = document.getElementById('stl');
+              var targetWidth = container.offsetWidth;
+              var targetHeight = container.offsetWidth / 16 * 9;
 
               //Detector.addGetWebGLMessage();
 
               scene = new THREE.Scene();
 
-              camera = new THREE.PerspectiveCamera( 70, (window.innerWidth/3) / (window.innerHeight/3), 1, 10000 );
+              camera = new THREE.PerspectiveCamera( 70, (targetWidth / 3 * 2) / (targetHeight / 3 * 2), 1, 10000 );
               camera.position.z = 100;
               camera.position.y = 40;
               scene.add( camera );
@@ -323,9 +345,9 @@
               xhr.send( null );
 
               renderer = new THREE.WebGLRenderer(); //new THREE.CanvasRenderer();
-              renderer.setSize( window.innerWidth/4, window.innerHeight/4 );
-
-              document.getElementById('stl').appendChild( renderer.domElement );
+              //renderer.setSize( window.innerWidth/4, window.innerHeight/4 );
+              renderer.setSize(targetWidth, targetHeight);
+              container.appendChild( renderer.domElement );
 
           }
 
